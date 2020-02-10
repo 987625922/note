@@ -54,7 +54,7 @@ MYSQL
 
      ```
      CREATE TABLE Order(
-     	order-num INTEGER NOT NULL AUTO_INCREMENT,
+     	order-num INTEGER NOT NULL PRIMARY KEY AUTO_INCREMENT,
      	quantity INTEGER DEFAULT
      );
      ```
@@ -66,3 +66,87 @@ MYSQL
      3. 删除表：DROP TABLE CustCopy
 
 3. 约束
+
+   - 主键
+
+     1. 值不能重复且不能为空
+     2. 主键值不能修改
+     3. 行被删除后，其主键值不能分配到新行
+
+   - 外键
+
+     外键是表中的一个列，其值必须在另一个表的主键中列出
+
+     ```mysql
+     CREATE TABLE Orders(
+     	order_num INTEGER PRIMAPY KEY,
+         cust_id CHAR(10) NOT NULL REFEREBCES Customers(cust_id)
+     )
+     ```
+
+   - 唯一约束
+
+     唯一约束用来保证一个列中的数据唯一，类似于主键。区别：
+
+     1. 表可以包含多个唯一约束，但主键只允许一个
+
+     2. 唯一约束可包含NULL值
+
+     3. 唯一约束可修改
+
+     4. 列删除之后，唯一约束的值可在其他地方使用
+
+     5. 唯一约束不能定义外键
+
+        ```mysql
+         CREATE TABLE tb_dept(
+             id INT(11) PRIMARY KEY,
+             name VARCHAR(22) UNIQUE,
+             location VARCHAR(50)
+             );
+        ```
+
+4. 索引
+
+   索引用来排序数据以加快搜索和排序操作的速度
+
+   ```
+   CREATE INDEX prod_name_ind ON PRODUCTS(prod_name)
+   ```
+
+   prod_name_ind：索引名
+
+   PRODUCTS：表名
+
+   prod_name：表中的列名
+
+5. SQL数据类型
+
+   | 数值类型  |       |
+   | --------- | ----- |
+   | TINYINT   | 1字节 |
+   | SMALLINT  | 2字节 |
+   | MEDIUMINT | 3字节 |
+   | INT       | 4字节 |
+   | BIGINT    | 8字节 |
+   | FLOAT     | 4字节 |
+   | DOUBLE    | 8字节 |
+   | DECIMAL   |       |
+
+   --
+
+   | 字符串类型 |                  |            |
+   | ---------- | ---------------- | ---------- |
+   | CHAR       | 0-255字节        | 定长字符串 |
+   | VARCHAR    | 0-65535字节      | 变长字符串 |
+   | TINYBLOB   | 0-255字节        | ?          |
+   | TINYTEXT   | 0-255字节        | ?          |
+   | BLOB       | 0-65535字节      |            |
+   | TEXT       | 0-65525字节      |            |
+   | MEDIUMBLOB | 0-16777215字节   |            |
+   | MEDIUMTEXT | 0-16777215字节   |            |
+   | LONGBLOB   | 0-4294967295字节 |            |
+   | LONGTEXT   | 0-429496729字节  |            |
+
+   
+
