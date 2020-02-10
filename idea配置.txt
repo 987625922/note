@@ -1,0 +1,4 @@
+-------
+1.添加模板  setting -> edit -> live templates 之后添加个 templates group 再在组的基础上添加 live te
+mplates
+2.修改方法注释快捷键 添加fix doc comment 快捷键方法

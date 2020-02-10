@@ -1,0 +1,6 @@
+1.filter是基于函数回调 dofilter()，而Interceptor是基于aop思想
+2.Filter只在Servlet强起作用，而Interceptor能够深入到方法前后，异常抛出前后灯
+3.Filter依赖于Servlet容器，而Interceptor不依赖于Servlet容器所以可以运行在多种环境
+4.在接口调用的生命周期里，Interceptor可以被多次调用，而Filter只能在容器初始化时调用一次
+5.Filter和Interceptor的执行顺序
+过滤前-》拦截前-》action执行-》拦截后-》过滤后
